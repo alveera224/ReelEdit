@@ -1,31 +1,38 @@
 # Dependencies
 node_modules/
-/vsp/node_modules/
-/vsp/frontproj/node_modules/
+/frontproj/node_modules/
 
-# Environment variables
+# Environment files
 .env
-/vsp/.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Build files
-/vsp/frontproj/dist/
-/vsp/frontproj/build/
+# Build outputs
+/frontproj/dist/
+/frontproj/build/
 
 # Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# System Files
-.DS_Store
-Thumbs.db
-
-# IDE specific files
-.idea/
+# IDE and editor files
 .vscode/
+.idea/
 *.swp
 *.swo
 
-# Uploaded videos and temporary files
-/vsp/uploads/
-/vsp/frames/ 
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded videos and segments
+/uploads/videos/*
+!/uploads/videos/.gitkeep
+/uploads/videos/segments/*
+!/uploads/videos/segments/.gitkeep
+
+# Database files
+/data/videos.json 
