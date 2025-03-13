@@ -1,0 +1,493 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* App-specific styles */
+
+/* Modern styling for the application with dark theme */
+:root {
+  --primary-color: #2196F3;
+  --primary-dark: #1976d2;
+  --primary-light: #BBDEFB;
+  --secondary-color: #4CAF50;
+  --secondary-dark: #2E7D32;
+  --accent-color: #FF4081;
+  --error-color: #F44336;
+  --warning-color: #FF9800;
+  --success-color: #4CAF50;
+  --text-primary: #E0E0E0;
+  --text-secondary: #AAAAAA;
+  --background-color: #121212;
+  --surface-color: #1E1E1E;
+  --card-color: #252525;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-background {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(33, 150, 243, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 85% 85%, rgba(76, 175, 80, 0.1) 0%, transparent 25%);
+  padding: 20px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Utility classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Custom styles for video elements */
+video:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  .video-container video {
+    max-height: 300px;
+  }
+  
+  .segment-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* Video container styling */
+.video-container {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  background-color: #000;
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
+  max-height: 500px;
+}
+
+.video-player {
+  transition: all 0.3s ease;
+}
+
+.video-player:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Upload area styling */
+.upload-area {
+  border: 2px dashed var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(33, 150, 243, 0.05);
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  background-color: rgba(33, 150, 243, 0.1);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.upload-area.active {
+  background-color: rgba(33, 150, 243, 0.15);
+  border-color: var(--primary-dark);
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.2);
+}
+
+/* Progress indicators */
+.upload-progress {
+  height: 8px;
+  background-color: rgba(76, 175, 80, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.upload-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  transition: width 0.3s ease;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+/* Notification styling */
+.message {
+  padding: 12px;
+  border-radius: var(--border-radius);
+  margin: 12px 0;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.message.error {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: var(--error-color);
+  border-left: 4px solid var(--error-color);
+}
+
+.message.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: var(--success-color);
+  border-left: 4px solid var(--success-color);
+}
+
+.message.info {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: var(--primary-color);
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Card styling */
+.video-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-color);
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Button styling */
+.gradient-button {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+}
+
+.gradient-button:hover {
+  background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+  box-shadow: 0 6px 15px rgba(33, 150, 243, 0.4);
+  transform: translateY(-2px);
+}
+
+.gradient-button.success {
+  background: linear-gradient(45deg, var(--secondary-color), var(--secondary-dark));
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.gradient-button.success:hover {
+  background: linear-gradient(45deg, var(--secondary-dark), var(--secondary-color));
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.gradient-button.accent {
+  background: linear-gradient(45deg, var(--accent-color), #C2185B);
+  box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+}
+
+.gradient-button.accent:hover {
+  background: linear-gradient(45deg, #C2185B, var(--accent-color));
+  box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
+}
+
+/* Segment grid styling */
+.segment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.segment-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--card-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.segment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.segment-thumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.segment-thumbnail video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.segment-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.segment-card:hover .segment-overlay {
+  opacity: 1;
+}
+
+.segment-info {
+  padding: 12px;
+}
+
+.segment-time {
+  display: inline-block;
+  background-color: rgba(33, 150, 243, 0.2);
+  color: var(--primary-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.segment-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 2;
+}
+
+/* Processing animation */
+.processing-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.processing-spinner {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.processing-spinner:before,
+.processing-spinner:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.processing-spinner:before {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  animation: spin 2s infinite linear;
+}
+
+.processing-spinner:after {
+  width: 75%;
+  height: 75%;
+  background-color: var(--card-color);
+  top: 12.5%;
+  left: 12.5%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Video Segment Animations */
+@keyframes progress-bar-stripes {
+  from { background-position: 1rem 0; }
+  to { background-position: 0 0; }
+}
+
+.segment-list-item {
+  transition: all 0.2s ease;
+}
+
+.segment-list-item:hover {
+  transform: translateY(-2px);
+}
+
+.segment-player {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.segment-player:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Fade in animation for segments */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.segment-item {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.segment-item:nth-child(1) { animation-delay: 0.05s; }
+.segment-item:nth-child(2) { animation-delay: 0.1s; }
+.segment-item:nth-child(3) { animation-delay: 0.15s; }
+.segment-item:nth-child(4) { animation-delay: 0.2s; }
+.segment-item:nth-child(5) { animation-delay: 0.25s; }
+.segment-item:nth-child(6) { animation-delay: 0.3s; }
+.segment-item:nth-child(7) { animation-delay: 0.35s; }
+.segment-item:nth-child(8) { animation-delay: 0.4s; }
+.segment-item:nth-child(9) { animation-delay: 0.45s; }
+.segment-item:nth-child(10) { animation-delay: 0.5s; }
